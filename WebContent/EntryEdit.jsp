@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,23 +19,23 @@
 </head>
 <body>
 	<div class="container">
-		<h3 class="text-center" style="padding-bottom: 20px">New Diary
+		<h3 class="text-center" style="padding-bottom: 20px">Update Diary
 			Entry</h3>
-		<form name="createForm" method="POST" action="EntryCreate">
+		<form name="updateForm" method="PUT" action="EntryUpdate">
 			<div class="form-group">
 			  <label for="entryDate">Date:</label>
-			  <input name="entryDate" type="date" class="form-control" id="entryDate">
+			  <input name="entryDate" type="date" class="form-control" id="entryDate" value="<c:out value="${entry.getEntryDate()}" />">
 			</div>
 			<div class="form-group">
 			  <label for="authorName">Name:</label>
-			  <input name="authorName" type="text" class="form-control" id="authorName">
+			  <input name="authorName" type="text" class="form-control" id="authorName" value="<c:out value="${entry.getAuthorName()}" />">
 			</div>
 			<div class="form-group">
 				<label for="entryText">Text:</label>
-				<textarea name=entryText class="form-control" rows="5" id="entryText"></textarea>
+				<textarea name=entryText class="form-control" rows="5" id="entryText"> <c:out value="${entry.getEntryText()}" /></textarea>
 			</div>
 
-			<input type="submit" value="Create" class="btn btn-primary"/>
+			<input type="submit" value="Update" class="btn btn-primary"/>
 		</form>
 	</div>		
 		<script

@@ -38,7 +38,7 @@ public class EntryDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public void delete(Integer id) {
 		String sql = "DELETE from diyary.entry where id = ?";
 
@@ -57,32 +57,61 @@ public class EntryDAO {
 		}
 	}
 
+	public Entry findById(Integer id) {
+		String sql = "SELECT * FROM diyary.entry where id = ?";
+
+		try {
+			// Prepared statement for insertion
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, id);
+
+			// Executing query
+			ResultSet rs = stmt.executeQuery();
+			
+			Entry anEntry = new Entry();
+			while (rs.next()) {
+				anEntry.setId(rs.getInt("id"));
+				anEntry.setAuthorName(rs.getString("author_name"));
+				anEntry.setEntryDate(rs.getDate("entry_date"));
+				anEntry.setEntryText(rs.getString("entry_text"));
+			}
+
+			// Closing connection
+			stmt.close();
+
+			// Returning all entries
+			return anEntry;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 	public List<Entry> all() {
 		String sql = "SELECT * FROM diyary.entry";
 
 		try {
-			//Creating an empty arraylist
+			// Creating an empty arraylist
 			ArrayList<Entry> allEntries = new ArrayList<>();
-			
+
 			// Prepared statement for insertion
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			// Executing query
 			ResultSet rs = stmt.executeQuery();
-			while(rs.next()){
+			while (rs.next()) {
 				Entry anEntry = new Entry();
 				anEntry.setId(rs.getInt("id"));
 				anEntry.setAuthorName(rs.getString("author_name"));
 				anEntry.setEntryDate(rs.getDate("entry_date"));
 				anEntry.setEntryText(rs.getString("entry_text"));
-				
-				//Adding this to the list
+
+				// Adding this to the list
 				allEntries.add(anEntry);
-			}			
-			// Closing connection	
+			}
+			// Closing connection
 			stmt.close();
-			
-			//Returning all entries
+
+			// Returning all entries
 			return allEntries;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

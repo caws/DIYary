@@ -40,8 +40,10 @@
 						<td><c:out value="${item.getEntryDate()}" /></td>
 						<td><c:out value="${item.getAuthorName()}" /></td>
 						<td><c:out value="${item.getEntryText()}" /></td>
-						<td><a href="#"><i class="far fa-edit"></i></a> <a href="EntryDelete?id=<c:out value="${item.getId()}" />"><i
-								class="far fa-trash-alt"></i></a></td>
+						<td>
+							<a href="EntryEdit?id=<c:out value="${item.getId()}" />"><i class="far fa-edit"></i></a> 
+							<a href="EntryDelete?id=<c:out value="${item.getId()}" />"><i class="far fa-trash-alt"></i></a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -10,22 +10,28 @@ import javax.servlet.http.HttpServletResponse;
 
 import diary.daos.EntryDAO;
 
-@WebServlet("/EntryDelete")
-public class EntryDelete extends HttpServlet {
+@WebServlet("/EntryEdit")
+public class EntryEdit extends HttpServlet {
+
 	/**
 	* 
 	*/
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	// Getting list of entries from DB and sending to JSP view
+	//Creating a new diary and saving it on the DB
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+		System.out.println("EntryEdit servlet");
+		System.out.println(req.getParameter("id"));
 		
-		System.out.println("EntryDelete servlet");
-
 		EntryDAO entryDao = new EntryDAO();
-		entryDao.delete(Integer.parseInt(req.getParameter("id")));		
+				
+		if (entryDao.findById(Integer.parseInt(req.getParameter("id"))) != null) {
+			req.setAttribute("entry", entryDao.findById(Integer.parseInt(req.getParameter("id"))));			
+		}
+		
+		req.getServletContext().getRequestDispatcher("/EntryEdit.jsp").forward(req, resp);
+	}	
 
-		resp.sendRedirect(req.getContextPath() +"/EntryIndex");
-	}
 }
