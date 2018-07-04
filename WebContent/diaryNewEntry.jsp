@@ -22,16 +22,16 @@
 			Entry</h3>
 		<form name="loginForm" method="POST" action="DiaryCreate">
 			<div class="form-group">
-			  <label for="date">Date:</label>
-			  <input name="username" type="date" class="form-control" id="date">
+			  <label for="entryDate">Date:</label>
+			  <input name="entryDate" type="date" class="form-control" id="entryDate">
 			</div>
 			<div class="form-group">
-			  <label for="username">Name:</label>
-			  <input name="username" type="text" class="form-control" id="username">
+			  <label for="authorName">Name:</label>
+			  <input name="authorName" type="text" class="form-control" id="authorName">
 			</div>
 			<div class="form-group">
-				<label for="entry">Text:</label>
-				<textarea name="entry" class="form-control" rows="5" id="entry"></textarea>
+				<label for="entryText">Text:</label>
+				<textarea name=entryText class="form-control" rows="5" id="entryText"></textarea>
 			</div>
 
 			<input type="submit" value="Create" class="btn btn-primary"/>
