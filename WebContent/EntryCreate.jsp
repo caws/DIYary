@@ -20,7 +20,7 @@
 	<div class="container">
 		<h3 class="text-center" style="padding-bottom: 20px">New Diary
 			Entry</h3>
-		<form name="loginForm" method="POST" action="DiaryCreate">
+		<form name="loginForm" method="POST" action="EntryCreate">
 			<div class="form-group">
 			  <label for="entryDate">Date:</label>
 			  <input name="entryDate" type="date" class="form-control" id="entryDate">

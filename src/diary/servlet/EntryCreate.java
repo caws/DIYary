@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import diary.daos.EntryDAO;
 import diary.models.Entry;
 
-@WebServlet("/DiaryCreate")
-public class DiaryCreate extends HttpServlet {
+@WebServlet("/EntryCreate")
+public class EntryCreate extends HttpServlet {
 
 	/**
 	* 
@@ -23,7 +23,7 @@ public class DiaryCreate extends HttpServlet {
 	//Creating a new diary and saving it on the DB
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		System.out.println("Creating new diary entry.");
+		System.out.println("EntryCreate servlet");
 		System.out.println(req.getParameter("entryDate"));
 		System.out.println(req.getParameter("authorName"));
 		System.out.println(req.getParameter("entryText"));
@@ -37,10 +37,10 @@ public class DiaryCreate extends HttpServlet {
 		//Instantiating a DAO object and invoking its method called 'insert'
 		//(To insert a new entry, duhhh)
 		EntryDAO entryDao = new EntryDAO();
-		entryDao.insert(newEntry);
-			
-		//Sending the user back to the main page
-		resp.sendRedirect("/DIYary/index.jsp");
+		entryDao.insert(newEntry);	
+		
+		//Sending the user back to the main page along with all the entries
+		resp.sendRedirect(req.getContextPath() +"/EntryIndex");
 	}	
 
 }

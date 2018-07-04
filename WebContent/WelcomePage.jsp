@@ -22,7 +22,7 @@
 
 		<div class="row">
 			<div class="col-sm-6 text-center">
-				<a href="index.jsp"><i class="far fa-address-book"
+				<a href="EntryIndex"><i class="far fa-address-book"
 					style="font-size: 256px;"></i>
 					<h3 style="padding: 20px">My DIYary</h3> </a>
 			</div>
