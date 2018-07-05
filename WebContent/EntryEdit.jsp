@@ -19,28 +19,40 @@
 </head>
 <body>
 	<div class="container">
-		<h3 class="text-center" style="padding-bottom: 20px">Update Diary
+		<h3 class="text-center" style="padding-bottom: 20px">Edit Diary
 			Entry</h3>
-		<form name="updateForm" method="PUT" action="EntryUpdate">
-			<div class="form-group">
-			  <label for="entryDate">Date:</label>
-			  <input name="entryDate" type="date" class="form-control" id="entryDate" value="<c:out value="${entry.getEntryDate()}" />">
+		<form name="updateForm" method="POST" action="EntryUpdate">
+			<div class="form-group" style="display: none;">
+				<label for="entryId">Id:</label> <input name="entryId" type="text"
+					class="form-control" id="entryId"
+					value="<c:out value="${entry.getId()}" />" readonly>
 			</div>
 			<div class="form-group">
-			  <label for="authorName">Name:</label>
-			  <input name="authorName" type="text" class="form-control" id="authorName" value="<c:out value="${entry.getAuthorName()}" />">
+				<label for="entryDate">Date:</label> <input name="entryDate"
+					type="date" class="form-control" id="entryDate"
+					value="<c:out value="${entry.getEntryDate()}" />">
+			</div>
+			<div class="form-group">
+				<label for="authorName">Name:</label> <input name="authorName"
+					type="text" class="form-control" id="authorName"
+					value="<c:out value="${entry.getAuthorName()}" />">
 			</div>
 			<div class="form-group">
 				<label for="entryText">Text:</label>
-				<textarea name=entryText class="form-control" rows="5" id="entryText"> <c:out value="${entry.getEntryText()}" /></textarea>
+				<textarea name=entryText class="form-control" rows="5"
+					id="entryText"> <c:out value="${entry.getEntryText()}" /></textarea>
 			</div>
-
-			<input type="submit" value="Update" class="btn btn-primary"/>
+			<a style="color: white;" class="btn btn-success"
+				href="EntryIndex"> <i class="fas fa-arrow-left"> </i> Back
+			</a>
+			<button type"submit" class="btn btn-primary float-right">
+				<i class="fas fa-sync-alt"></i> Update
+			</button>
 		</form>
-	</div>		
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-			crossorigin="anonymous"></script>
+	</div>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
 </html>

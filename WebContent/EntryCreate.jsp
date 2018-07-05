@@ -33,8 +33,10 @@
 				<label for="entryText">Text:</label>
 				<textarea name=entryText class="form-control" rows="5" id="entryText"></textarea>
 			</div>
-
-			<input type="submit" value="Create" class="btn btn-primary"/>
+			<a style="color: white;" class="btn btn-success"
+				href="EntryIndex"> <i class="fas fa-arrow-left"> </i> Back
+			</a>
+			<button type"submit" class="btn btn-primary float-right"><i class="far fa-check-square"></i> Create</button>
 		</form>
 	</div>		
 		<script

@@ -55,7 +55,7 @@
 				</a>
 			</div>
 			<div class="col-sm-6">
-				<a style="color: white;" class="btn btn-primary"
+				<a style="color: white;" class="btn btn-primary float-right"
 					href="EntryCreate.jsp"> <i class="far fa-plus-square"> </i>
 					Add new entry
 				</a>

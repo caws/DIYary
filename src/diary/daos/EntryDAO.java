@@ -56,6 +56,27 @@ public class EntryDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public void update(Entry entry) {
+        String sql = "UPDATE diyary.entry SET entry_date=?, author_name=?, entry_text=? WHERE id=?";
+        try {
+			// Prepared statement for insertion
+			PreparedStatement stmt = connection.prepareStatement(sql);
+
+			// Setting the values
+			stmt.setDate(1, entry.getEntryDate());
+			stmt.setString(2, entry.getAuthorName());
+			stmt.setString(3, entry.getEntryText());
+			// Where id = 
+			stmt.setInt(4, entry.getId());
+
+			// Executing
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+    }
 
 	public Entry findById(Integer id) {
 		String sql = "SELECT * FROM diyary.entry where id = ?";
