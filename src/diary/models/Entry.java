@@ -8,7 +8,7 @@ public class Entry {
 	private String authorName;
 	private String entryText;
 	
-	//Standard constructor
+	//Default constructor
 	public Entry() {
 		
 	}
